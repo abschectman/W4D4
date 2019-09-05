@@ -1,0 +1,25 @@
+<h2><%= @album.title %></h2>
+<br>
+<% @album.tracks.each do |track| %>
+<li>
+<ul><%= track.title %></ul>
+</li>
+<% end %>
+<br>
+<h3>New Track</h3>
+<br>
+<form action="<%= album_tracks_url %>" method="POST">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+<label for="title">Title</label>
+<input id="title" type="text" value="" name="track[title]">
+
+<label for="ord">Album Number</label>
+<input type="integer" id="ord" name="track[ord]">
+
+<label for="lyrics">Lyrics</label>
+<input type="lyrics" id="lyrics" name="track[lyrics]">
+
+<input type="submit" value="Create Album">
+
+</form>

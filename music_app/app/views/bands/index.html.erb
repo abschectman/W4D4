@@ -1,0 +1,8 @@
+<main id="band">
+<h1>BANDS!!</h1>
+<% Band.all.each do |band| %>
+<label for="band"><%= band.name %></label>
+<a href="<%= band_url(band) %>">homepage</a>
+<br> 
+<% end %>
+</main>

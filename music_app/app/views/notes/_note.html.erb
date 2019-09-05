@@ -1,0 +1,11 @@
+<li><ul>
+<%= note.body %>
+<br>
+<%= note.author.email %>
+</ul></li>
+
+<form action="<%= track_note_url(note.id) %>" method="POST">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<input type="hidden" name="_method" value="DELETE">
+<input type="submit" value="Delete Note">
+</form>

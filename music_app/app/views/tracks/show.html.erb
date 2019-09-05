@@ -1,0 +1,32 @@
+<h1><%= @track.title %></h1>
+
+<% @track.notes.each do |note| %>
+
+<%= render "notes/note", {note: note} %>
+
+<% end %>
+
+
+
+
+
+
+
+<form action="<%= track_notes_url(@track.id) %>" method="POST">
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<label for="note">Add a Note</label>
+<input type="textarea" id="note" value="" name="note[body]">
+<input type="submit" value="Create">
+
+
+
+</form>
+
+
+
+
+
+
+
+
+<a href="<%= album_url(@track.album_id) %>"> Back to Album </a>
