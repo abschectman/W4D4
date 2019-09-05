@@ -22,6 +22,18 @@ class BandsController < ApplicationController
       render :show
     end
 
+    def edit
+      @band = Band.find(params[:id])
+      render :edit
+      
+    end
+
+    def update
+      band = Band.find(params[:id])
+      band.update(band_params)
+      redirect_to bands_url
+    end
+
     def destroy
       band = Band.find(params[:id])
       band.destroy
